@@ -1,0 +1,13 @@
+data/output/*
+!data/output/.gitkeep
+data/restore/*
+!data/restore/.gitkeep
+logs/*
+!logs/.gitkeep
+*.tar.gz
+*.sha256
+.env
+*.key
+*.pem
+id_*
+sysguard_key*
