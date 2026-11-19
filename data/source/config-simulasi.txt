@@ -1,0 +1,5 @@
+Nama Aplikasi: Backup Monitoring Demo
+Versi: 1.0
+Status: Simulasi
+Lingkungan: Ubuntu WSL
+Data: Bukan data pribadi

@@ -1,0 +1,48 @@
+
+services:
+
+  demo-service:
+    image: nginx:alpine
+    container_name: backupmon-demo-service
+    restart: unless-stopped
+
+    ports:
+      - "8080:80"
+
+    networks:
+      - backupmon-net
+
+    cpus: "0.50"
+    mem_limit: 128m
+
+  backup-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_UID: ${LOCAL_UID:-1000}
+        APP_GID: ${LOCAL_GID:-1000}
+
+    image: backup-monitoring:1.0
+
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+
+    volumes:
+      - ./data/source:/data/source:ro
+      - ./data/backups:/data/backups
+      - ./data/restore:/data/restore
+      - ./logs:/app/logs
+
+    networks:
+      - backupmon-net
+
+    cpus: "0.50"
+    mem_limit: 128m
+
+    profiles:
+      - tools
+
+networks:
+  backupmon-net:
+    driver: bridge
+

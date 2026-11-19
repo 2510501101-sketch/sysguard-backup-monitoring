@@ -1,13 +1,30 @@
-data/output/*
-!data/output/.gitkeep
-data/restore/*
-!data/restore/.gitkeep
-logs/*
-!logs/.gitkeep
-*.tar.gz
-*.sha256
+# Environment dan kredensial
 .env
 *.key
 *.pem
 id_*
 sysguard_key*
+
+# File sementara
+*.tmp
+*.swp
+*.log
+
+# Backup dan hasil restore
+data/backups/*
+!data/backups/.gitkeep
+data/restore/*
+!data/restore/.gitkeep
+data/output/*
+!data/output/.gitkeep
+
+# Log
+logs/*
+!logs/.gitkeep
+
+# Cache dan konfigurasi editor
+__pycache__/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
